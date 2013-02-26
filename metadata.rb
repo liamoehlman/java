@@ -14,3 +14,17 @@ recipe "java::oracle_i386", "Installs the 32-bit jvm without setting it as the d
 %w{ debian ubuntu centos redhat scientific fedora amazon arch freebsd }.each do |os|
   supports os
 end
+
+attribute "java/install_flavor",
+  :display_name => "Java Install Flavor",
+  :description => "Which java to install, openjdk or oracle",
+  :required => "recommended",
+  :choice => [ "openjdk", "oracle" ],
+  :type => "string"
+
+attribute "java/jdk_version",
+  :display_name => "Java Version",
+  :description => "Which version of java to install, 6 or 7",
+  :required => "recommended",
+  :choice => [ "6", "7" ],
+  :type => "string"
